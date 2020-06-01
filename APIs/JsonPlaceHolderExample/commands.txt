@@ -1,0 +1,4 @@
+npm i -D locus@2.0.0 (i: short for install, -D: with dependencies, @: version)(locus not worked, then I proceeded with console.log)
+
+npm install -save request-promise
+

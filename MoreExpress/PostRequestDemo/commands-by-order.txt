@@ -1,0 +1,17 @@
+mkdir PostRequestDemo
+cd PostRequestDemo
+npm init
+npm install express --save
+npm install ejs --save
+touch app.js
+mkdir views
+touch views/home.ejs
+node app.js (or nodemon)
+touch views/friends.ejs
+npm install body-parser --save (to get a javascript objec req.body inside post method)
+
+
+
+
+
+

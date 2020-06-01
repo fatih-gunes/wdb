@@ -1,0 +1,4 @@
+npm init
+npm install --save express ejs request
+mkdir views
+touch views/results.ejs
