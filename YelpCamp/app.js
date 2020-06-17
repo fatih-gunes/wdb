@@ -5,6 +5,9 @@ var express = require("express"),
 	Campground = require("./models/campground"),
 	seedDB = require("./seeds");
 
+
+seedDB();
+	
 // from: https://mongoosejs.com/docs/deprecations.html
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useFindAndModify', false);
