@@ -6,7 +6,6 @@ var express = require("express"),
 	seedDB = require("./seeds");
 
 
-seedDB();
 	
 // from: https://mongoosejs.com/docs/deprecations.html
 // mongoose.set('useNewUrlParser', true);
@@ -17,6 +16,8 @@ seedDB();
 mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+
+seedDB();
 
 
 
@@ -101,10 +102,11 @@ app.get("/campgrounds/new", function(req, res) {
 // SHOW - shows more info about one campground
 app.get("/campgrounds/:id", function(req, res) {
 	// Find the campground with the provided Id
-	Campground.findById(req.params.id, function(err, foundCampground) {
+	Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(foundCampground);
 			// render show template with that campground
 			res.render("show", {campground: foundCampground});
 		}
